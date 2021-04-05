@@ -1,11 +1,5 @@
 library StringsAndBytes {
 
-    /* --- public variables for storing tests results */
-    string public lastTestStringResult; //
-    bytes32 public lastTestBytes32Result; //
-    bytes public lastTestBytesResult; // bytes: dynamically-sized byte array
-    bool public lastTestBoolResult; //
-
 
     function stringToBytes32(string memory source) public constant returns (bytes32 result) {
         // require(bytes(source).length <= 32); // causes error
@@ -18,7 +12,7 @@ library StringsAndBytes {
     }//
     function stringToBytes32Test(string _string) returns (bytes32) {
         bytes32 _bytes32 = stringToBytes32(_string);
-        lastTestBytes32Result = _bytes32;
+        //lastTestBytes32Result = _bytes32;
         StringToBytes32(_string, _bytes32);
         return _bytes32;
     }//
@@ -32,7 +26,7 @@ library StringsAndBytes {
     }//
     function isStringEqualOrShorterThanTest(string memory str, uint256 length) returns (bool){
 
-        lastTestBoolResult = isStringEqualOrShorterThan(str, length);
+        bool lastTestBoolResult = isStringEqualOrShorterThan(str, length);
         IsStringEqualOrShorterThan(str, length, lastTestBoolResult);
 
         return lastTestBoolResult;
@@ -46,7 +40,7 @@ library StringsAndBytes {
     function bytesArrayToStringTest(bytes memory _bytes) public returns (string) {
         string memory result = bytesArrayToString(_bytes);
         BytesToString(_bytes, result);
-        lastTestStringResult = result;
+        string memory  lastTestStringResult = result;
         return result;
     } //
     event BytesToString(
@@ -60,7 +54,7 @@ library StringsAndBytes {
     } //
     function stringToBytesArrayTest(string memory str) public returns (bytes){
         bytes memory result = stringToBytesArray(str);
-        lastTestBytesResult = result;
+        bytes memory lastTestBytesResult = result;
         StringToBytesArray(str, result);
         return result;
     } //
@@ -77,7 +71,7 @@ library StringsAndBytes {
         return bytesArray;
     }//
     function bytes32ToBytesTest(bytes32 _bytes32) public returns (bytes){
-        lastTestBytesResult = bytes32ToBytes(_bytes32);
+        bytes memory lastTestBytesResult = bytes32ToBytes(_bytes32);
         Bytes32ToBytes(_bytes32, lastTestBytesResult);
         return lastTestBytesResult;
     }//
@@ -92,7 +86,7 @@ library StringsAndBytes {
         return string(bytesArray);
     }//
     function bytes32ToStringTest(bytes32 _bytes32) public returns (string){
-        lastTestStringResult = bytes32ToString(_bytes32);
+        string memory lastTestStringResult = bytes32ToString(_bytes32);
         Bytes32ToString(_bytes32, lastTestStringResult);
         return lastTestStringResult;
     }//
@@ -169,7 +163,7 @@ library StringsAndBytes {
     function messageSenderAddressToStringTest() public returns (string) {
         string memory senderString = addressToAsciiString(msg.sender);
         MsgSenderAddressToStringTest(msg.sender, senderString);
-        lastTestStringResult = senderString;
+        string memory  lastTestStringResult = senderString;
         return senderString;
     } //
     event MsgSenderAddressToStringTest(address msgSenderAddress, string msgSenderAsString);
@@ -255,7 +249,7 @@ library StringsAndBytes {
     } //
     function stringsConcatenationTest(string str1, string str2) public returns (string) {
         string memory result = stringsConcatenation(str1, str2);
-        lastTestStringResult = result;
+        string memory  lastTestStringResult = result;
         TestStringsConcatenation(str1, str2, result);
         return result;
     } //
@@ -274,7 +268,7 @@ library StringsAndBytes {
     } //
     function stringsJoinTest(string str1, string str2, string str3) public returns (string) {
         string memory result = stringsJoin(str1, str2, str3);
-        lastTestStringResult = result;
+        string memory  lastTestStringResult = result;
         TestStringsJoin(str1, str2, str3, result);
         return result;
     } //
