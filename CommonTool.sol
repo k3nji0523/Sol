@@ -1,3 +1,5 @@
+import "https://github.com/ethereum/dapp-bin/blob/master/library/stringUtils.sol"
+
 library CommonTool {
 
   function getLastNumber(string str) private view returns (string)    {
