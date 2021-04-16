@@ -1,4 +1,4 @@
-pragma solidity ^0.6.12;
+pragma solidity ^0.4.23;
 // SPDX-License-Identifier: MIT
 library Strings {
   // via https://github.com/oraclize/ethereum-api/blob/master/oraclizeAPI_0.5.sol
